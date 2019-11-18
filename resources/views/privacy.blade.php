@@ -45,4 +45,7 @@
 
 <p>By using our website, you hereby consent to our Privacy Policy and agree to its Terms and Conditions.</p>
 
+<div class= "btn">Akkord</div>
+<div class= "btn">Niet Akkord</div>
+
 </div>
