@@ -17,3 +17,4 @@ Route::get('/', function () {
 Route::get('privacy', function () {
     return view('privacy');
 });
+Route::resource('sales', 'SalesController');
