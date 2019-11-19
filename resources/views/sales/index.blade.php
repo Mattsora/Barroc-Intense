@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +9,39 @@
     <title>Document</title>
 </head>
 <body>
-<p>TEST</p>
+<form action="{{ route('sales.store') }}" method="post">
+    @csrf
+    Role ID<br>
+    <input type="text" name="role_id" placeholder="Role">
+    <br>
+    Name:<br>
+    <input type="text" name="name" placeholder="Name">
+    <br><br>
+    Email:<br>
+    <input type="email" name="email" placeholder="Email">
+    <br><br>
+    Password:<br>
+    <input type="password" name="password" placeholder="">
+    <br><br>
+
+    <input type="submit" value="Submit">
+</form>
+<form action="{{ route('notes.store') }}" method="post">
+    @csrf
+    Role ID<br>
+    <input type="text" name="name" placeholder="Jouw Naam">
+    <br>
+    <input type="text" name="ownName" placeholder="Klant naam">
+    <br>
+    <input type="text" name="note" placeholder="Opmerking">
+    <br>
+
+    <input type="submit" value="Submit">
+</form>
+<ul>
+    @foreach($users as $user)
+        <p>{{ $user ->name }}</p>
+    @endforeach
+</ul>
 </body>
 </html>
