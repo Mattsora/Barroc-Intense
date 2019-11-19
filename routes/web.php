@@ -17,4 +17,16 @@ Route::get('/', function () {
 Route::get('privacy', function () {
     return view('privacy');
 });
+
+Route::get('login', function () {
+    return view('auth/login');
+});
 Route::resource('sales', 'SalesController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
