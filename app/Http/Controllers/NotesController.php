@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use Illuminate\Http\Request;
 use App\User;
 use App;
-use Illuminate\Http\Request;
 
-class SalesController extends Controller
+class NotesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class SalesController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('sales/index' , ['users' => $users]);
+
+
     }
 
     /**
@@ -38,13 +37,21 @@ class SalesController extends Controller
      */
     public function store(Request $request)
     {
-        User::insert([
-            'role_id'           => $request->role_id,
-            'name'          => $request->name,
-            'email'  => $request->email,
-            'password'  => $request->password
+        $user = User::where('name', $request->name)
+        ->get();
+
+        $user2 = User::where('name', $request->ownName)
+            ->get();
+
+        var_dump($user[0]->id);
+
+        App\quotations::insert([
+            'sales_id'           => $user2[0]->id,
+            'customer_id'          => $user[0]->id,
+            'content'            => $request->note
         ]);
     }
+
 
     /**
      * Display the specified resource.
@@ -54,7 +61,7 @@ class SalesController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**

@@ -18,3 +18,4 @@ Route::get('privacy', function () {
     return view('privacy');
 });
 Route::resource('sales', 'SalesController');
+Route::resource('notes', 'NotesController');
