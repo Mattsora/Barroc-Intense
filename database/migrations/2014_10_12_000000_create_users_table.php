@@ -13,14 +13,17 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        //Builds a table within a database so there's no need to use phpmyadmin
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('role_id',false);
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('role_id')->references('id')->on('roles');
         });
     }
 
