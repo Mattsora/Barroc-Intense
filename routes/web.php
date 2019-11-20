@@ -16,6 +16,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/offerte', function () {
+    return view('offerte');
+});
+
+Route::resource('offerte', 'offerteController');
+
 Route::get('privacy', function () {
     return view('privacy');
 });

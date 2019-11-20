@@ -95,6 +95,17 @@ body {
 html{
     margin: 0;
     padding: 0;
-
 }
 
+.offerte{
+    display: flex;
+    flex-direction: column;
+}
+
+.offerte h1 {
+    text-align: center;
+}
+
+.offerte label{
+    font-size: 20px;
+}

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1450bda3-1981-4935-8d17-761c26743716" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +134,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Laravel/Github webshop/laravel_webshop_2019" />
+    <property name="last_opened_file_path" value="C:/xampp/htdocs/barrocintens/barrocintens" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -180,6 +179,7 @@
       <workItem from="1574150803442" duration="3444000" />
       <workItem from="1574246345815" duration="17000" />
       <workItem from="1574246546936" duration="4000" />
+      <workItem from="1574260344209" duration="112000" />
     </task>
     <servers />
   </component>
