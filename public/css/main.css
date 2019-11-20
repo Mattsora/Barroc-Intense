@@ -1,0 +1,100 @@
+#logo {
+    max-width: 40%;
+}
+.logo {
+
+}
+.header {
+    display: flex;
+    padding-top: 15px;
+    padding-left: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    margin: 5px;
+}
+
+a {
+   color: white;
+
+}
+a:hover {
+    color: #FDD700;
+}
+
+#hey {
+    max-width: 100%;
+}
+
+li a {
+    color: black;
+    font-style: italic;
+}
+
+button {
+    background-color: #FDD700;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+    margin: 5px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.white:hover {
+    color: #212121;
+}
+
+@font-face {
+    font-family: 'big_shoulders_displayregular';
+    src: url('../fonts/bigshouldersdisplay-regular-webfont.woff2') format('woff2'),
+    url('../fonts/bigshouldersdisplay-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.shoulders{
+    font-family: 'big_shoulders_displayregular', sans-serif;
+    font-weight:normal;
+    font-style:normal;
+    font-size: 50px;
+}
+.jumbotron p {
+    font-size: 35px;
+}
+
+.roboto {
+    font-family: roboto;
+}
+
+.yellow {
+    color: #FDD700;
+}
+
+a .white:hover {
+    text-decoration: none;
+}
+
+.jumbotron button{
+    font-size: 25px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    margin: 0;
+    padding: 0;
+
+}
+
