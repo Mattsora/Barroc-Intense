@@ -39,9 +39,9 @@ class SalesController extends Controller
     public function store(Request $request)
     {
         User::insert([
-            'role_id'           => $request->role_id,
-            'name'          => $request->name,
-            'email'  => $request->email,
+            'role_id'   => $request->role_id,
+            'name'      => $request->name,
+            'email'     => $request->email,
             'password'  => $request->password
         ]);
     }
