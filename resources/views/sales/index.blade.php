@@ -11,7 +11,9 @@
     <title>Document</title>
 </head>
 <body>
-   
+      
+
+
 <form action="{{ route('sales.store') }}" method="post">
     @csrf
     Role ID<br>

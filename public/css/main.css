@@ -1,5 +1,20 @@
+@font-face {
+    font-family: "BigShoulder";
+    src: url("../fonts/bigshouldersdisplay-regular-webfont.woff") format("truetype");
+  }
 #logo {
-    max-width: 40%;
+   
+}
+.img-logo
+{
+   
+    background-position: center;
+    background-image: url("../img/Logo6_groot.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 128px;
+    height : 128px;
+    
 }
 body{
     background-color: #fdfcfc;
@@ -10,7 +25,10 @@ body{
     width : 75%;
     background-color: #ffffff;
 }
-
+.container
+{
+    width: 100%;
+}
 .header {
     display: flex;
     padding-top: 15px;
@@ -18,9 +36,20 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-
-nav {
+.navbar-brand
+{
+    margin :0 auto;
+    color : #000;
+ 
+    width: 100%;
     display: flex;
+    background-color: #FDD700;
+}
+nav {
+    width: 100%;
+    height : 240px;
+    display: flex;
+    color: #FDD700;
 }
 
 nav a {
