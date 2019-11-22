@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class quotations extends Model
+class notes extends Model
 {
     protected $fillable = [
-        'name', 'lease_cost', 'startup_cost', 'description', 'in_stock'
+        'sales_id', 'customer_id', 'content',
     ];
 }

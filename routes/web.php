@@ -31,6 +31,7 @@ Route::get('login', function () {
 });
 Route::resource('sales', 'SalesController');
 Route::resource('notes', 'NotesController');
+Route::resource('quotations', 'quotationsController');
 
 Auth::routes();
 

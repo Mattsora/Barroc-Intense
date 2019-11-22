@@ -15,12 +15,13 @@ class CreateQuotationsTable extends Migration
     {
         Schema::create('quotations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('sales_id');
             $table->unsignedBigInteger('customer_id');
-            $table->text('content');
+            $table->unsignedBigInteger('supplies_id');
+            $table->unsignedBigInteger('totalPrice');
+            $table->unsignedBigInteger('amount');
             $table->timestamps();
-            $table->foreign('sales_id')->references('id')->on('users');
             $table->foreign('customer_id')->references('id')->on('users');
+            $table->foreign('supplies_id')->references('id')->on('supplies');
         });
     }
 
