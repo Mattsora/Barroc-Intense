@@ -1,6 +1,15 @@
 #logo {
     max-width: 40%;
 }
+body{
+    background-color: #fdfcfc;
+}
+#app
+{
+    margin : 0 auto;
+    width : 75%;
+    background-color: #ffffff;
+}
 .logo {
 
 }
@@ -21,7 +30,7 @@ nav a {
 }
 
 a {
-   color: white;
+   color: rgb(51, 51, 51);
 
 }
 a:hover {
@@ -97,15 +106,15 @@ html{
     padding: 0;
 }
 
-.offerte{
+.note{
     display: flex;
     flex-direction: column;
 }
 
-.offerte h1 {
+.note-h1 {
     text-align: center;
 }
 
-.offerte label{
+.note label{
     font-size: 20px;
 }

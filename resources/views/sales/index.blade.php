@@ -2,6 +2,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('css/custom.css')}}" rel="stylesheet" type="text/css"/>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -9,6 +11,7 @@
     <title>Document</title>
 </head>
 <body>
+   
 <form action="{{ route('sales.store') }}" method="post">
     @csrf
     Role ID<br>
@@ -23,8 +26,9 @@
     Password:<br>
     <input type="password" name="password" placeholder="">
     <br><br>
-
+    <div class="btn">
     <input type="submit" value="Submit">
+    </div>
 </form>
 <form action="{{ route('notes.store') }}" method="post">
     @csrf
@@ -35,8 +39,10 @@
     <br>
     <input type="text" name="note" placeholder="Opmerking">
     <br>
+    <div class="btn">
 
     <input type="submit" value="Submit">
+    </div>
 </form>
 <ul>
     @foreach($users as $user)
