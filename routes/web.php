@@ -30,6 +30,7 @@ Route::get('login', function () {
     return view('auth/login');
 });
 Route::resource('sales', 'SalesController');
+Route::resource('notes', 'NotesController');
 
 Auth::routes();
 
