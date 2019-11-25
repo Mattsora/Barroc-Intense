@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\quotations;
-use App;
 
-class quotationsController extends Controller
+class purchaseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class quotationsController extends Controller
      */
     public function index()
     {
-        $supplies = App\supplies::all();
-        return view('quotations/index' , ['supplies' => $supplies]);
+        //
     }
 
     /**
@@ -37,23 +34,7 @@ class quotationsController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump($request->dropdown);
-        $count = $request->quantity;
-
-        $product = App\supplies::where('id', $request->dropdown)
-            ->get();
-        var_dump($product[0]->lease_cost);
-        $price = $count * $product[0]->lease_cost;
-
-        App\quotations::insert([
-            'supplies_id'           => $request->dropdown,
-            'customer_id'          => 1,
-            'totalPrice'            => $price,
-            'amount'            => $request->quantity
-
-
-            
-        ]);
+        //
     }
 
     /**

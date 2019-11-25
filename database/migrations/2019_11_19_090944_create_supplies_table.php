@@ -21,7 +21,10 @@ class CreateSuppliesTable extends Migration
             $table->text('description');
             $table->text('thumbnail');
             $table->boolean('in_stock');
+            $table->unsignedBigInteger('roll_id');
             $table->timestamps();
+
+            $table->foreign('roll_id')->references('id')->on('product_roll');
 
         });
     }
