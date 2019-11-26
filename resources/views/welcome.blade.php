@@ -2,13 +2,41 @@
 ?>
 @extends('layouts/mainlayout')
 @section('content')
-    {{--}}<div class="album text-muted">
-        <div class="container">
-            <div class="row">
-                <h1>This is a demo text</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas dolor vulputate quam convallis consequat. Quisque eu lorem eget magna lacinia suscipit. Maecenas condimentum vehicula eros. Fusce massa lacus, blandit et leo sed, accumsan commodo sem. Sed eget pulvinar tellus. Praesent ex diam, sodales at consequat id, viverra ut dolor. In eget orci sit amet magna sagittis mattis sit amet sed augue. Vivamus facilisis libero ligula, vel sodales ipsum sollicitudin id. Duis vitae urna rutrum, dignissim arcu ac, elementum augue. Quisque id interdum ligula. Donec tincidunt feugiat massa sed aliquam. Duis eu vehicula turpis.</p>
+    <div class="container box">
+        <h3 align="center">Contact? stuur een mailtje!</h3><br />
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-        </div>
-    </div>{{--}}
+        @endif
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
+        <form method="post" action="{{url('sendemail/send')}}">
+            {{ csrf_field() }}
+            <div class="form-group">
+                <label>Enter Your Name</label>
+                <input type="text" name="name" class="form-control" value="" />
+            </div>
+            <div class="form-group">
+                <label>Enter Your Email</label>
+                <input type="text" name="email" class="form-control" value="" />
+            </div>
+            <div class="form-group">
+                <label>Enter Your Message</label>
+                <textarea name="message" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="send" class="btn btn-info" value="Send" />
+            </div>
+        </form>
 @endsection
 <b></b>
