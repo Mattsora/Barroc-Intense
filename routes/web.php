@@ -16,15 +16,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Route::get('/offerte', function () {
     return view('offerte');
 });
 
-Route::get('/storingaanvraag', function () {
-    return view('storingaanvraag');
-});
-
 Route::resource('offerte', 'offerteController');
+
+Route::get('erroroverview', function () {
+    return view('erroroverview');
+});
 
 Route::get('privacy', function () {
     return view('privacy');
@@ -37,7 +39,7 @@ Route::resource('sales', 'SalesController');
 Route::resource('notes', 'NotesController');
 Route::resource('quotations', 'quotationsController');
 Route::resource('purchase', 'purchaseController');
-
+Route::resource('error', 'errorController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
