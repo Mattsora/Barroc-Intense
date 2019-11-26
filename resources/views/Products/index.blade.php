@@ -8,6 +8,16 @@
     <title>Document</title>
 </head>
 <body>
-    <p>{{$purchase->name}}</p>
+
+<table style="width:100%">
+    <tr>
+        @foreach($supplies as $supplie)
+            <td>Naam : {{ $supplie ->name }}</td>
+            <td> Kosten : {{ $supplie ->lease_cost }}</td>
+            <td> Stock : {{ $supplie ->in_stock }}</td>
+        @endforeach
+    </tr>
+
+</table>
 </body>
 </html>

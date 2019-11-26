@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\purchase;
+use App\supplies;
+use App;
 
 class purchaseController extends Controller
 {
@@ -14,8 +15,8 @@ class purchaseController extends Controller
      */
     public function index()
     {
-       $purchase =  purchase::all();
-        return view('Products/index', ['purchase' => $purchase]);
+        $supplies = App\supplies::all();
+        return view('Products/index' , ['supplies' => $supplies]);
     }
 
     /**
