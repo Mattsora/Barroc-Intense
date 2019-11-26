@@ -51,5 +51,11 @@
         <p>{{ $user ->name }}</p>
     @endforeach
 </ul>
+<ul>
+    @foreach($quotations as $quotation)
+        <p>{{ $quotation ->totalPrice }}</p>
+    @endforeach
+
+</ul>
 </body>
 </html>

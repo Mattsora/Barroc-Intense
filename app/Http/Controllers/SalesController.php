@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\User;
+use App\quotations;
 use App;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class SalesController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('sales/index' , ['users' => $users]);
+        $quotations = quotations::all();
+        return view('sales/index' , ['users' => $users],['quotations' => $quotations] );
     }
 
     /**

@@ -13,7 +13,7 @@
 
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 Route::get('/offerte', function () {
@@ -32,6 +32,7 @@ Route::get('login', function () {
 Route::resource('sales', 'SalesController');
 Route::resource('notes', 'NotesController');
 Route::resource('quotations', 'quotationsController');
+Route::resource('purchase', 'purchaseController');
 
 Auth::routes();
 
