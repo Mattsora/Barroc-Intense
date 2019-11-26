@@ -20,6 +20,10 @@ Route::get('/offerte', function () {
     return view('offerte');
 });
 
+Route::get('/storingaanvraag', function () {
+    return view('storingaanvraag');
+});
+
 Route::resource('offerte', 'offerteController');
 
 Route::get('privacy', function () {
