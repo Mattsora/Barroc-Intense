@@ -20,6 +20,17 @@
                 <strong>{{ $message }}</strong>
             </div>
         @endif
+
+        <div style="display: flex">
+            <div>
+                <a class="btn btn-info" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </div>
+            <div>
+                <a class="btn btn-info" href="{{ route('register') }}">{{ __('Register') }}</a>
+            </div>
+        </div>
+
+
         <form method="post" action="{{url('sendemail/send')}}">
             {{ csrf_field() }}
             <div class="form-group">
