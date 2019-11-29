@@ -16,51 +16,40 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Route::get('/offerte', function () {
     return view('offerte');
 });
 
-Route::resource('offerte', 'offerteController');
-
-Route::get('erroroverview', function () {
-    return view('erroroverview');
+Route::get('/storingaanvraag', function () {
+    return view('storingaanvraag');
 });
+
+Route::resource('offerte', 'offerteController');
 
 Route::get('privacy', function () {
     return view('privacy');
+});
+
+Route::get('login', function () {
+    return view('auth/login');
+});
+
+Route::get('reciept', function () {
+    return view('Maintenance/reciept');
 });
 
 Route::resource('sales', 'SalesController');
 Route::resource('notes', 'NotesController');
 Route::resource('quotations', 'quotationsController');
 Route::resource('purchase', 'purchaseController');
-
-Route::resource('error', 'errorController');
-Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroroverview');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/', function (){
-    return view('welcome');
-});
-
-Route::get('/sendemail', 'SendEmailController@index');
-
-Route::post('/sendemail/send', 'SendEmailController@send');
+Route::resource('product    ', 'ProductsController');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes(['register' => false]);
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
