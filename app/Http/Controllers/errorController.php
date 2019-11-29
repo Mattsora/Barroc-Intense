@@ -25,7 +25,8 @@ class errorController extends Controller
      */
     public function create()
     {
-        //
+        $error = error::all();
+        return view('errors/erroroverview', ['errors'=>$error]);
     }
 
     /**
@@ -87,5 +88,14 @@ class errorController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+
+    public function erroroverview()
+    {
+
     }
 }

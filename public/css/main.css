@@ -110,3 +110,8 @@ html{
 .offerte label{
     font-size: 20px;
 }
+
+.erroroverview {
+    display: flex;
+    flex-direction: row;
+}
