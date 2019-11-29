@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class purchase extends Model
+class purchase_rules extends Model
 {
     protected $fillable = [
-        'user_id'
+        'purchase_id', 'supply_id'
     ];
 
 }

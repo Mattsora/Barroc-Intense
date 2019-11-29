@@ -1,4 +1,4 @@
-    <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,15 @@
     <title>Document</title>
 </head>
 <body>
+<form action="{{ route('purchase.store') }}" method="post">
+    @csrf
+     Naam<br>
+    <input type="text" name="name" placeholder="Naam Product">
+    <br>
+    <div class="btn">
+        <input type="submit" value="Submit">
+    </div>
+</form>
 
 <table style="width:100%">
     <tr>
@@ -22,13 +31,35 @@
     </tr>
 
 </table>
+<form action="{{ route('purchaseBuy.store') }}" method="post">
+    @csrf
+    Naam<br>
+    <select class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="Dropdown1">
+        @foreach($supplies as $supplie)
+            <option value="{{ $supplie->id }}">{{ $supplie->name }}</option>
+        @endforeach
+    </select>
+    <select class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="Dropdown2">
+        @foreach($supplies as $supplie)
+            <option value="{{ $supplie->id }}">{{ $supplie->name }}</option>
+        @endforeach
+    </select>
+    <select class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="Dropdown3">
+        @foreach($supplies as $supplie)
+            <option value="{{ $supplie->id }}">{{ $supplie->name }}</option>
+        @endforeach
+    </select>
+    <div class="btn">
+        <input type="submit" value="Submit">
+    </div>
+</form>
 </body>
 </html>
 <style>
-    td {
-        display : block;
-    }
     table {
         text-align: center;
+    }
+    td {
+        display: block;
     }
 </style>

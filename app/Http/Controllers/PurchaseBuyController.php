@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\purchase;
+use App\purchase_rules;
 use Illuminate\Http\Request;
-use App\supplies;
-use App;
 
-class purchaseController extends Controller
+class PurchaseBuyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,7 @@ class purchaseController extends Controller
      */
     public function index()
     {
-
-        $supplies = App\supplies::all();
-        return view('Products/index' , ['supplies' => $supplies]);
+        //
     }
 
     /**
@@ -27,10 +25,8 @@ class purchaseController extends Controller
      */
     public function create()
     {
-
+        //
     }
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -40,12 +36,23 @@ class purchaseController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->input('name');
+        purchase::insert([
+            'user_id'           => 2
+        ]);
 
-
-        $supplies = supplies::where('name')->orWhere('name', 'like', '%' . $name . '%')->get();
-
-        return view('products.index', ['supplies' => $supplies]);
+        $id = purchase::max('id');
+        purchase_rules::insert([
+            'purchase_id' => $id,
+            'supply_id' => $request->Dropdown1
+        ]);
+        purchase_rules::insert([
+            'purchase_id' => $id,
+            'supply_id' => $request->Dropdown2
+        ]);
+        purchase_rules::insert([
+            'purchase_id' => $id,
+            'supply_id' => $request->Dropdown3
+        ]);
     }
 
     /**

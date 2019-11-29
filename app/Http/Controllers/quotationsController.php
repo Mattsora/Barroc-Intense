@@ -50,9 +50,6 @@ class quotationsController extends Controller
             'customer_id'          => 1,
             'totalPrice'            => $price,
             'amount'            => $request->quantity
-
-
-            
         ]);
     }
 

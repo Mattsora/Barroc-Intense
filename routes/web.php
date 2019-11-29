@@ -36,7 +36,7 @@ Route::resource('sales', 'SalesController');
 Route::resource('notes', 'NotesController');
 Route::resource('quotations', 'quotationsController');
 Route::resource('purchase', 'purchaseController');
-
+Route::resource('purchaseBuy', 'purchaseBuyController');
 Route::resource('error', 'errorController');
 Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroroverview');
 
