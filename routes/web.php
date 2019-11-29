@@ -32,9 +32,6 @@ Route::get('privacy', function () {
     return view('privacy');
 });
 
-Route::get('login', function () {
-    return view('auth/login');
-});
 Route::resource('sales', 'SalesController');
 Route::resource('notes', 'NotesController');
 Route::resource('quotations', 'quotationsController');
@@ -59,3 +56,11 @@ Route::get('/sendemail', 'SendEmailController@index');
 
 Route::post('/sendemail/send', 'SendEmailController@send');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes(['register' => false]);
+
+Route::get('/home', 'HomeController@index')->name('home');
