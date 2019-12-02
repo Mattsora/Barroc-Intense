@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\error;
-use App\User;
+use App\lease_contract;
 use Illuminate\Http\Request;
 
-class errorController extends Controller
+class financeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,7 @@ class errorController extends Controller
     public function index()
     {
         //
-        $user = user::all();
-        return view('errors/index', ['users'=>$user]);
+        return view('finance/index');
     }
 
     /**
@@ -27,7 +25,8 @@ class errorController extends Controller
      */
     public function create()
     {
-
+        //
+        return view('finance/create');
     }
 
     /**
@@ -39,11 +38,12 @@ class errorController extends Controller
     public function store(Request $request)
     {
         //
-        error::insert([
-            'errorMessage'          =>  $request->errorMessage,
-            'CompanyName'           =>  $request->CompanyName
+        lease_contract::insert([
+            'customer_id'          =>  $request->customer_id,
+            'start_date'           =>  $request->start_date,
+            'end_date'             =>  $request->end_date
         ]);
-        return redirect('error');
+        return view('finance/index');
     }
 
     /**
@@ -89,15 +89,5 @@ class errorController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-
-    public function erroroverview()
-    {
-        $error = error::all();
-        return view('errors/erroroverview', ['errors'=>$error]);
     }
 }
