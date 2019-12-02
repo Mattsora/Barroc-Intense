@@ -46,6 +46,8 @@ Route::resource('purchaseBuy', 'purchaseBuyController');
 
 Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroroverview');
 Route::resource('error', 'errorController');
+Route::resource('UserEdit', 'UserEditController');
+Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroroverview');
 
 Auth::routes();
 
