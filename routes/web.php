@@ -32,6 +32,12 @@ Route::get('privacy', function () {
     return view('privacy');
 });
 
+Route::get('login', function () {
+    return view('auth/login');
+});
+
+
+
 Route::resource('sales', 'SalesController');
 Route::resource('notes', 'NotesController');
 Route::resource('quotations', 'quotationsController');
@@ -44,6 +50,14 @@ Route::resource('error', 'errorController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('product', 'ProductsController');
+Route::resource('recipt', 'RecieptController');
+
+Route::get('/reciept', 'RecieptController@index');
+Route::get('/reciept-create','RecieptController@store');
+Route::get('Maintenance/reciept', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
