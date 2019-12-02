@@ -29,7 +29,8 @@ class SalesController extends Controller
      */
     public function create()
     {
-        //
+        $roles = \App\Roles::all();
+        return view('auth/register', ['roles'=>$roles]);
     }
 
     /**
@@ -41,9 +42,10 @@ class SalesController extends Controller
     public function store(Request $request)
     {
         User::insert([
-            'role_id'   => $request->role_id,
+
             'name'      => $request->name,
             'email'     => $request->email,
+            'role_id'   => $request->role_id,
             'password'  => $request->password
         ]);
     }
