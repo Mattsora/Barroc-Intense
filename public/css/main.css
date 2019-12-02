@@ -115,3 +115,6 @@ html{
     display: flex;
     flex-direction: row;
 }
+.erroroverview h3 {
+    margin: 5px;
+}

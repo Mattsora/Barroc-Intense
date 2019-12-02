@@ -25,8 +25,7 @@ class errorController extends Controller
      */
     public function create()
     {
-        $error = error::all();
-        return view('errors/erroroverview', ['errors'=>$error]);
+
     }
 
     /**
@@ -96,6 +95,7 @@ class errorController extends Controller
 
     public function erroroverview()
     {
-
+        $error = error::all();
+        return view('errors/erroroverview', ['errors'=>$error]);
     }
 }
