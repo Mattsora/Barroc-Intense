@@ -113,8 +113,11 @@ html{
 
 .erroroverview {
     display: flex;
-    flex-direction: row;
+
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
 }
 .erroroverview h3 {
-    margin: 5px;
+
 }

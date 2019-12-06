@@ -26,7 +26,7 @@
     <div class="container">
         <div class="header">
         <div class="logo">
-            <img id="logo" src="img/Logo6_groot.png" alt="Logo">
+            <img id="logo" src="../img/Logo6_groot.png" alt="Logo">
         </div>
 
         <div class="container d-flex justify-content-betIen">

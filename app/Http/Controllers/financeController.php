@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\error;
-use App\User;
+use App\lease_contract;
+use App\LeaseType;
 use Illuminate\Http\Request;
 
-class errorController extends Controller
+class financeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class errorController extends Controller
     public function index()
     {
         //
-        $user = user::all();
-        return view('errors/index', ['users'=>$user]);
+
+        return view('finance/index');
     }
 
     /**
@@ -27,6 +27,9 @@ class errorController extends Controller
      */
     public function create()
     {
+        //
+        $types = LeaseType::all();
+        return view('finance/create', ['types'=>$types]);
 
     }
 
@@ -39,11 +42,13 @@ class errorController extends Controller
     public function store(Request $request)
     {
         //
-        error::insert([
-            'errorMessage'          =>  $request->errorMessage,
-            'CompanyName'           =>  $request->CompanyName
+        lease_contract::insert([
+            'customer_id'          =>  $request->customer_id,
+            'start_date'           =>  $request->start_date,
+            'end_date'             =>  $request->end_date,
+            'lease_type'             =>  $request->lease_type
         ]);
-        return redirect('error');
+        return view('finance/index');
     }
 
     /**
@@ -91,13 +96,19 @@ class errorController extends Controller
         //
     }
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-
-    public function erroroverview()
+    public function financecontractoverview()
     {
-        $error = error::all();
-        return view('errors/erroroverview', ['errors'=>$error]);
+        $users = \DB::select('select users.id, users.role_id, users.name FROM users
+        INNER JOIN lease_contracts
+        ON users.id = lease_contracts.customer_id
+        WHERE users.id = lease_contracts.customer_id');
+        $contracttypes = \DB::select('select lease_type.id, lease_type.name FROM lease_type
+        INNER JOIN lease_contracts
+        ON lease_type.id = lease_contracts.lease_type
+        WHERE lease_type.id = lease_contracts.lease_type');
+        $contracts = lease_contract::all();
+        return view('finance/contractoverview', ['contracts'=>$contracts,
+            'users'=>$users,
+            'contracttypes'=>$contracttypes]);
     }
 }

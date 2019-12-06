@@ -43,8 +43,10 @@ Route::resource('notes', 'NotesController');
 Route::resource('quotations', 'quotationsController');
 Route::resource('purchase', 'purchaseController');
 Route::resource('purchaseBuy', 'purchaseBuyController');
+Route::resource('finance', 'financeController');
 
 Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroroverview');
+Route::get('financecontractoverview', 'financeController@financecontractoverview')->name('finance.finance   contractoverview');
 Route::resource('error', 'errorController');
 Route::resource('UserEdit', 'UserEditController');
 Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroroverview');
@@ -52,7 +54,6 @@ Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroro
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('product', 'ProductsController');
 Route::resource('recipt', 'RecieptController');
 
 Route::get('/reciept', 'RecieptController@index');

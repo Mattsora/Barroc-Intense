@@ -12,5 +12,6 @@
 <link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/bootstrap-theme.css">
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="../css/main.css">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
