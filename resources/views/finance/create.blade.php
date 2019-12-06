@@ -15,7 +15,14 @@
                 <input type="date" id="start_date" name="start_date" required>
 
                 <label for="end_date">Eind datum</label>
-                <input type="date" id="end_date" name="end_date" required></input>
+                <input type="date" id="end_date" name="end_date" required>
+
+                <label for="lease_type">Contract type</label>
+                <select name="lease_type" id="lease_type">
+                    @foreach ($types as $type)
+                        <option value="{{$type->id}}">{{$type->name}}</option>
+                    @endforeach
+                </select>
 
                 <input type="submit" value="Submit">
             </form>

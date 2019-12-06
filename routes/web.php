@@ -46,12 +46,13 @@ Route::resource('purchaseBuy', 'purchaseBuyController');
 Route::resource('finance', 'financeController');
 
 Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroroverview');
+Route::get('financecontractoverview', 'financeController@financecontractoverview')->name('finance.finance   contractoverview');
 Route::resource('error', 'errorController');
+Route::resource('finance', 'financeController');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('product', 'ProductsController');
 Route::resource('recipt', 'RecieptController');
 
 Route::get('/reciept', 'RecieptController@index');
