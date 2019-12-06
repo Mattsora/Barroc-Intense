@@ -50,7 +50,7 @@ Route::get('financecontractoverview', 'financeController@financecontractoverview
 Route::resource('error', 'errorController');
 Route::resource('UserEdit', 'UserEditController');
 Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroroverview');
-
+Route::resource('finance', 'financeController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
