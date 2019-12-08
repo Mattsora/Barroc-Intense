@@ -1,31 +1,44 @@
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-@extends('layouts/app')
-
+@extends('layouts/mainlayout')
 @section('content')
-    <form action="{{ route('UserEdit.edit', $userID->id)}}" method="POST">
-        @csrf
-        @method('PUT')
-        <label for="">Naam</label>
-        <input type="text" name="name" placeholder="{{$userID->name}}">
-        <br><br>
-        Email:<br>
-        <input type="email" name="email" placeholder="{{$userID->email}}">
-        <br><br>
-        Password:<br>
-        <input type="password" name="password" placeholder="Password">
-        <div class="btn">
-            <input type="submit" value="Submit">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <form action="{{ route('UserEdit.update', $userID->id)}}" method="POST">
+                @csrf
+                @method('PUT')
+                <label for="">Naam</label><br>
+                <input type="text" name="name" placeholder="{{$userID->name}}">
+                <br><br>
+                Email:<br>
+                <input type="email" name="email" placeholder="{{$userID->email}}">
+                <br><br>
+                Password:<br>
+                <input type="password" name="password" placeholder="Password">
+                <br>
+                <div class="btn">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+            <div class="box">
+                <h3>Persoonlijke info</h3>
+                <p>{{$userID->name}}</p>
+                <p>{{$userID->email}}</p>
+            </div>
+            <div class="box">
+                <h3>Lease gegevens</h3>
+                <p>{{$LeaseID[0]->name}} - {{$supplyName[0]->name}}</p>
+            </div>
+            <div class="box">
+                <h3>Gekochte producten</h3>
+                <p>{{$products[0]->name}} </p>
+            </div>
         </div>
-    </form>
-</body>
-</html>
+    </section>
+    <style>
+        .box {
+            border: solid;
+        }
+        p {
+            font-size : 18px;
+        }
+    </style>

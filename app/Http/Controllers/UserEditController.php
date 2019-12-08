@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\purchase;
+use App\purchase_rules;
+use App\supplies;
 use App\User;
+use App\Lease;
+use App\LeaseType;
+use App\lease_rules;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,16 +23,23 @@ class UserEditController extends Controller
      */
     public function index()
     {
-        //$id = Auth::user()->getId();
-        $id  = auth()->user();
-        return view('UserEdit/index', ['userID' => $id]);
+        $id = Auth::user()->id;
+        $idUser =  Auth::user();
+        $lease = Lease::where('customer_id', $id)->get();
+        $leaseID = $lease[0]->id;
+        $test = lease_rules::all();
+        $supplyID = lease_rules::where('lease_id', $leaseID)->get();
+        $supplyName = supplies::where('id', $supplyID[0]->supply_id)->get();
+        $leaseTest = $lease[0]->lease_type_id;
+        $Type = LeaseType::where('id', $leaseTest)->get();
+
+        $purchaseID = purchase::where('user_id', $id)->get();
+        $PurchaseName = purchase_rules::where('purchase_id', $purchaseID[0]->id)->get();
+        $products = supplies::where('id', $PurchaseName[0]->supply_id)->get();
+
+        return view('UserEdit/index', ['userID' => $idUser, 'LeaseID' => $Type, 'supplyName' => $supplyName, 'products' => $products]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
@@ -81,7 +94,7 @@ class UserEditController extends Controller
             'email' => $request->email,
             'password' => $request->password
         ]);
-        return view();
+        return view('welcome');
     }
 
     /**

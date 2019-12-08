@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\purchase;
 use App\purchase_rules;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PurchaseBuyController extends Controller
 {
@@ -37,7 +38,7 @@ class PurchaseBuyController extends Controller
     public function store(Request $request)
     {
         purchase::insert([
-            'user_id'           => 2
+            'user_id'           => Auth::user()->id
         ]);
 
         $id = purchase::max('id');
