@@ -16,7 +16,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/bkrcheck', function () {
+    return view('bkrcheck');
+});
 
+Route::resource('bkrcheck', 'BkrController');
 
 Route::get('/offerte', function () {
     return view('offerte');
@@ -82,3 +86,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
