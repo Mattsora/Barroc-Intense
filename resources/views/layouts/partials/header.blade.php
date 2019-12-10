@@ -1,5 +1,3 @@
-<?php
-?>
 
 <section class="jumbotron text-center">
     <div class="container">
@@ -10,7 +8,7 @@
         </p>
         <p>
                 @if (Auth::Guest())
-             
+
                 <button> <a href="login" class="white"> Ik ben klant </a> </button>
                 <button> <a href="login" class="white"> Ik ben werknemer </a> </button>   
                 @endif

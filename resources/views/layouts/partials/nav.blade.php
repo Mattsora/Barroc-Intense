@@ -1,5 +1,11 @@
 <?php
+if (!Auth::Guest())
+{
+$user = auth()->user();
+ $role = $user->getRole();
+}
 ?>
+
 
 <div class="collapse bg-inverse" id="navbarHeader">
     <div class="container">
@@ -40,14 +46,21 @@
 
         </div>
         @if (!Auth::Guest())
-           
-            <nav>
-                <p>Medewerker Portaals</p>
-                <a href="sales">Sales</a>
-                <a href="finance">Finance</a>
-                <a href="notes">Notities</a>
-                <a href="quotations">Quotations</a>
-            </nav>
+            @if($role ==2)
+                <nav>
+                    <p>Medewerker Portaals</p>
+                    <a href="sales">Sales</a>
+                    <a href="finance">Finance</a>
+                    <a href="notes">Notities</a>
+                    <a href="quotations">Quotations</a>
+                </nav>
+            @else
+                <nav>
+                    <p>Klant Portaals</p>
+                    <a href="notes">Offertes Kijken</a>
+                   
+                </nav>
+            @endif
         @else
             <nav>
                <a href="privacy">Privacyverklaaring</a> 
