@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Offerte;
+use App\supplies;
 use Illuminate\Http\Request;
+use App\maintanceUsed;
 
-class offerteController extends Controller
+use Illuminate\Support\Facades\Auth;
+
+class maintanceUsedController extends Controller
 {
-    //
-    public function __construct()
-    {
-        $this->middleware('auth')->except(['index', 'show', 'Offerte']);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +17,9 @@ class offerteController extends Controller
      */
     public function index()
     {
-        return view('/Offerte');
+        $maintanceUsed= \App\maintanceUsed::all();
+        $supplies = supplies::all();
+        return view('maintanceUsed/index' , ['maintance' => $maintanceUsed, 'supplies' => $supplies]);
     }
 
     /**
@@ -29,7 +29,7 @@ class offerteController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -40,37 +40,24 @@ class offerteController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'voornaam'          => 'required|max:50',
-            'achternaam'          => 'required|max:50',
-            'email'         => 'required|max:200',
-            'nummer'         => 'required|max:40',
-            'vraag'  => 'required|max:1000'
-        ]);
-            Offerte::insert([
-                'voornaam' => $request->voornaam,
-                'achternaam' => $request->achternaam,
-                'email' => $request->email,
-                'nummer' => $request->nummer,
-                'vraag' => $request->vraag
+
+        maintanceUsed::insert([
+
+            'customer_id'  => Auth::user()->id,
+            'suplly_id'     => $request->Dropdown1,
+            'date' =>   date('Y-m-d')
             ]);
-        return redirect()->route('/offerte');
     }
 
     /**
      * Display the specified resource.
-     *
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        // 1. id ophalen ($id)
-        // 2. 1 categorie selecteren uit database
-        // 3. show template returnen met opgehaalde data
-
-        return view('/Offerte');
+        //
     }
 
     /**
@@ -81,7 +68,7 @@ class offerteController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
@@ -93,7 +80,7 @@ class offerteController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        //
     }
 
     /**
@@ -104,6 +91,6 @@ class offerteController extends Controller
      */
     public function destroy($id)
     {
-
+        //
     }
 }

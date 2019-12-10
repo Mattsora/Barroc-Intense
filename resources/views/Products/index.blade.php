@@ -20,20 +20,21 @@
 
 <table style="width:100%">
     <tr>
-        @foreach($supplies as $supplie)
-            <td>Naam : {{ $supplie ->name }}</td>
-            <td> Kosten : {{ $supplie ->lease_cost }}</td>
-            <td> Stock : {{ $supplie ->in_stock }}</td>
-            <td> Amount : {{ $supplie ->roll_id }}</td>
-            <td> Stock : {{ $supplie ->roll->roll }}</td>
-            <td>------------------------------------</td>
-        @endforeach
+            @foreach($supplies as $supplie)
+                <td>Naam : {{ $supplie ->name }}</td>
+                <td> Kosten : {{ $supplie ->lease_cost }}</td>
+                <td> Stock : {{ $supplie ->in_stock }}</td>
+                <td> Amount : {{ $supplie ->roll_id }}</td>
+                <td> Stock : {{ $supplie ->roll->roll }}</td>
+                <td>------------------------------------</td>
+            @endforeach
     </tr>
+
 
 </table>
 <form action="{{ route('purchaseBuy.store') }}" method="post">
     @csrf
-    Naam<br>
+    Naam<br>e
     <select class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="Dropdown1">
         @foreach($supplies as $supplie)
             <option value="{{ $supplie->id }}">{{ $supplie->name }}</option>

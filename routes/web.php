@@ -21,6 +21,8 @@ Route::get('/bkrcheck', function () {
 });
 
 Route::resource('bkrcheck', 'BkrController');
+Route::resource('maintanceUsed', 'maintanceUsedController');
+
 
 Route::get('/offerte', function () {
     return view('offerte');

@@ -18,8 +18,8 @@ class SalesController extends Controller
     public function index()
     {
         $users = User::all();
-        $quotations = quotations::all();
-        return view('sales/index' , ['users' => $users],['quotations' => $quotations] );
+    $quotations = quotations::all();
+    return view('sales/index' , ['users' => $users],['quotations' => $quotations] );
     }
 
     /**
