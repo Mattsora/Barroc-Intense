@@ -57,7 +57,7 @@ Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroro
 Route::resource('finance', 'financeController');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 Route::resource('recipt', 'RecieptController');
 
 Route::get('/reciept', 'RecieptController@index');
@@ -68,7 +68,7 @@ Route::get('Maintenance/reciept', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/', function (){
     return view('welcome');
@@ -85,5 +85,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 

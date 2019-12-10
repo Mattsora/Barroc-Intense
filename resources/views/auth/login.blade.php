@@ -1,6 +1,13 @@
-@extends('layouts.mainlayout')
 
-@section('content')
+    @include('layouts/partials/head')
+
+
+  
+    {{--}}@include('layouts/partials/footer'){{--}}
+    <div class="container">
+
+<h2> Login Portaal </h2>
+    </div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -70,4 +77,4 @@
         </div>
     </div>
 </div>
-@endsection
+

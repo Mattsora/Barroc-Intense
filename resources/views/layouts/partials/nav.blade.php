@@ -1,5 +1,6 @@
 <?php
 ?>
+
 <div class="collapse bg-inverse" id="navbarHeader">
     <div class="container">
         <div class="row">
@@ -38,10 +39,19 @@
 
 
         </div>
+        @if (!Auth::Guest())
+            <h4>Medewerker Portaals</h4>
             <nav>
-                <a href="">example1</a>
-                <a href="">example2</a>
-                <a href="">example3</a>
+                <a href="sales">Sales</a>
+                <a href="finance">Finance</a>
+                <a href="notes">Notities</a>
+                <a href="quotations">Quotations</a>
             </nav>
+        @else
+            <nav>
+               <a href="privacy">Privacyverklaaring</a> 
+             </nav>
+        @endif
+    
         </div>
     </div>
