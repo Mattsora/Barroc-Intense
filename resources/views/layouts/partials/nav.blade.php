@@ -40,8 +40,9 @@
 
         </div>
         @if (!Auth::Guest())
-            <h4>Medewerker Portaals</h4>
+           
             <nav>
+                <p>Medewerker Portaals</p>
                 <a href="sales">Sales</a>
                 <a href="finance">Finance</a>
                 <a href="notes">Notities</a>

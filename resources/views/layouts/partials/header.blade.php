@@ -9,12 +9,10 @@
         <p class="shoulders">Geniet van de zuiverste koffie op de wereld.</p>
         </p>
         <p>
-                @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-                <button> <a href="#" class="white"> Ik ben klant </a> </button>
-                <button> <a href="#" class="white"> Ik ben werknemer </a> </button>   
+                @if (Auth::Guest())
+             
+                <button> <a href="login" class="white"> Ik ben klant </a> </button>
+                <button> <a href="login" class="white"> Ik ben werknemer </a> </button>   
                 @endif
             
         </p>
