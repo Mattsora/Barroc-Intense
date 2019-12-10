@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Product;
+use App\User;
+use App\quotations;
+use App;
 class HomeController extends Controller
 {
     /**
@@ -21,6 +24,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function logout()
+    {
+        return view('Auth/logout');
+    }
     public function index()
     {
         return view('home');

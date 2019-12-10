@@ -68,6 +68,10 @@ Route::get('Maintenance/reciept', function () {
 
 Auth::routes();
 
+Route::get('logout', function (){
+    Auth::logout();
+    return view('welcome');
+});
 
 
 Route::get('/', function (){

@@ -61,6 +61,7 @@ $user = auth()->user();
                    
                 </nav>
             @endif
+            <a href="/logout">Uitloggen</a>
         @else
             <nav>
                <a href="privacy">Privacyverklaaring</a> 
