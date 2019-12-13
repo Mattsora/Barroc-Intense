@@ -50,7 +50,7 @@ Route::resource('quotations', 'quotationsController');
 Route::resource('purchase', 'purchaseController');
 Route::resource('purchaseBuy', 'purchaseBuyController');
 Route::resource('finance', 'financeController');
-
+Route::resource('prijsopgave', 'prijsopgaveController');
 Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroroverview');
 Route::get('financecontractoverview', 'financeController@financecontractoverview')->name('finance.finance   contractoverview');
 Route::resource('error', 'errorController');
@@ -81,9 +81,10 @@ Route::get('/', function (){
 });
 
 Route::get('/sendemail', 'SendEmailController@index');
-
 Route::post('/sendemail/send', 'SendEmailController@send');
 
+Route::get('/SendEmailSales', 'SendEmailSalesController@index');
+Route::post('/SendEmailSales/send', 'SendEmailSalesController@send');
 
 Auth::routes();
 

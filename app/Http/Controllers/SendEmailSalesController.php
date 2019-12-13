@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendEmailSales;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use\App\Mail\SendEmail;
 
-
-class SendEmailController extends Controller
+class SendEmailSalesController extends Controller
 {
+    //
     function index()
     {
-        return view('send_email');
+        return view('send_email_sales');
     }
 
     function send(Request $request)
     {
+
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
@@ -23,12 +24,12 @@ class SendEmailController extends Controller
         ]);
 
         $data = array(
-            'name'      =>  $request->name,
-            'message'   =>  $request->message
+            'name' => $request->name,
+            'message' => $request->message
         );
 
-        Mail::to('aaronstestmailtjes@gmail.com')->send
-        (new SendEmail($data));
+        Mail::to('salesbarrocintens@gmail.com')->send
+        (new SendEmailSales($data));
         return back()->with('succes', 'thanks for contacting us');
     }
 }
