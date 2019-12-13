@@ -1,0 +1,13 @@
+1. Model Createn Errors
+2. Controller Createn ErrorsController
+3. Model fillebels invullen (kijk andere models)
+4. Maak vieuws map aan
+5. Maak de index in die map aan
+6. Link in de controller naar die view
+7. Maak op die vieuw de forms aan
+8. Maak in de form action de link naar de controler
+9. Kijk in de andere controllers naar de insert querys
+10. Kopieer dit letterlijk en plek dit. (KIJK GOED NAAR DE DATABASE MAMEN ETC A ZACHBE)
+
+
+Wees geen mongool en niet dit letterlijk doen zonder na te denken over of het wel klopt.
