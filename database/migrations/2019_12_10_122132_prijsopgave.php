@@ -19,13 +19,6 @@ class Prijsopgave extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->unsignedBigInteger('customer_id');
-            $table->unsignedBigInteger('supply_id');
-            $table->unsignedBigInteger('supply_id1');
-            $table->unsignedBigInteger('supply_id2');
-            $table->unsignedBigInteger('count');
-            $table->unsignedBigInteger('count1');
-            $table->unsignedBigInteger('count2');
-            $table->foreign('supply_id')->references('id')->on('supplies');
             $table->foreign('customer_id')->references('id')->on('users');
 
         });

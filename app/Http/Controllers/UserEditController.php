@@ -36,8 +36,9 @@ class UserEditController extends Controller
         $purchaseID = purchase::where('user_id', $id)->get();
         $PurchaseName = purchase_rules::where('purchase_id', $purchaseID[0]->id)->get();
         $products = supplies::where('id', $PurchaseName[0]->supply_id)->get();
-
         return view('UserEdit/index', ['userID' => $idUser, 'LeaseID' => $Type, 'supplyName' => $supplyName, 'products' => $products]);
+
+
     }
 
     public function create()
@@ -88,11 +89,12 @@ class UserEditController extends Controller
     public function update(Request $request, $id)
     {
         $id = User::find($id);
+        $hashedPassword = Hash::make($request->password);
 
         $id->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password
+            'password' => $hashedPassword
         ]);
         return view('welcome');
     }

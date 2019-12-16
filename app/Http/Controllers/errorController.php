@@ -85,6 +85,9 @@ class errorController extends Controller
             'planned' =>  $request->date,
             'user_id' => $request->Dropdown1
         ]);
+        $errorCalander = error::all();
+        return view('errors/calander', ['errors'=>$errorCalander]);
+
 
     }
 
