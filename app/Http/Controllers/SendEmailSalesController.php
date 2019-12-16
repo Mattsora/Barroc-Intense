@@ -29,7 +29,9 @@ class SendEmailSalesController extends Controller
         );
 
         Mail::to('salesbarrocintens@gmail.com')->send
+
         (new SendEmailSales($data));
+
         return back()->with('succes', 'thanks for contacting us');
     }
 }
