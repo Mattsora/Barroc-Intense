@@ -13,7 +13,8 @@
 <body>
 
 
-@extends('layouts/app')
+@extends('layouts/mainlayout')
+
 
 @section('content')
 

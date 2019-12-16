@@ -27,11 +27,37 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    public function redirectTo(){
+        $user = \Auth::user();
+
+        switch ($user->role_id){
+            case 1:
+                return 'admin';
+                    break;
+            case 2:
+                return 'sales';
+                break;
+            case 3:
+                return 'finance';
+                break;
+            case 4:
+                return 'maintenance';
+                break;
+            case 5:
+                return 'head-maintenance';
+                break;
+            case 6:
+                return 'supplier';
+                break;
+            case 7:
+                return 'ceo';
+                break;
+            case 8:
+                return 'customer';
+                break;
+        }
+    }
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
