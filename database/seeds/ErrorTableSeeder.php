@@ -1,5 +1,6 @@
 <?php
 
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use \App\error;
 
@@ -12,14 +13,15 @@ class ErrorTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        Error::insert([
-            'errorMessage' => 'Hee man ik heb een error',
-            'CompanyName'  => 'Dit is mijn company name'
-    ]);
-        Error::insert([
-        'errorMessage' => 'HET GAAT HELEMAAL FOUT',
-        'CompanyName'  => 'OH MIJN GOD MIJN BEDRIJF GAAT KAPOT'
-    ]);
+
+        $userid = 1;
+        $faker = Faker::create();
+        for ($i=0; $i <= 150; $i++) {
+            DB::table('errors')->insert([
+                'errorMessage' => $faker->paragraph,
+                'CompanyName' => $faker->name
+            ]);
+            $userid++;
+        }
     }
 }

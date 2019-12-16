@@ -1,6 +1,7 @@
 <?php
 
 use App\Lease;
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
 class LeaseSeeder extends Seeder
@@ -12,11 +13,21 @@ class LeaseSeeder extends Seeder
      */
     public function run()
     {
-        //
-        Lease::insert([
-           'lease_type_id' => 1,
-            'customer_id' => 1,
-            'finance_id' => 1
-        ]);
-    }
+
+        $customer = 1;
+        $faker = Faker::create();
+        $lease_id = 1;
+        $supply_id = 1;
+        for ($i=0; $i <= 150; $i++) {
+            DB::table('leases')->insert([
+                'lease_type_id' => $faker->numberBetween('1', '2'),
+                'finance_id' => $faker->numberBetween('1','8'),
+                'customer_id'=> $faker->numberBetween('1','8')
+            ]);
+            $lease_id++;
+            $supply_id++;
+        }
+
+            $customer++;
+        }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\notes;
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
 class NotesSeeder extends Seeder
@@ -12,11 +13,17 @@ class NotesSeeder extends Seeder
      */
     public function run()
     {
-        //
-        notes::insert([
-           'sales_id' => 1,
-           'customer_id' => 1,
-           'content' => 'dit is een notes seeder'
-        ]);
+
+        $customer = 1;
+        $faker = Faker::create();
+        for ($i=0; $i <= 150; $i++) {
+            DB::table('notes')->insert([
+                'sales_id' => $faker->numberBetween('1', '8'),
+                'customer_id' => $faker->numberBetween('1', '8'),
+                'content' => $faker->paragraph
+            ]);
+
+            $customer++;
+        }
     }
 }

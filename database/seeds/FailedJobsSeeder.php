@@ -1,6 +1,7 @@
 <?php
 
 use App\failed_job;
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
 class FailedJobsSeeder extends Seeder
@@ -12,13 +13,18 @@ class FailedJobsSeeder extends Seeder
      */
     public function run()
     {
-        //
-        failed_job::insert([
-            'connection' => 'dit is een connectie in failed_jobs',
-            'queue' => 'dit is een queue in failed_jobs',
-            'payload' => 'dit is een payload in failed_jobs',
-            'exception' => 'dit is een excepted in failed_jobs'
-        ]);
+
+        $userid = 1;
+        $faker = Faker::create();
+        for ($i=0; $i <= 150; $i++) {
+            DB::table('failed_jobs')->insert([
+                'connection' => $faker->paragraph,
+                'queue' => $faker->name,
+                'payload' => $faker->paragraph,
+                'exception' => $faker->paragraph
+            ]);
+            $userid++;
+        }
 
     }
 }

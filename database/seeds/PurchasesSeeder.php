@@ -1,6 +1,7 @@
 <?php
 
 use App\purchase;
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
 class PurchasesSeeder extends Seeder
@@ -13,8 +14,15 @@ class PurchasesSeeder extends Seeder
     public function run()
     {
         //
-        purchase::insert([
-           'user_id' => 1
-        ]);
+
+        $customer = 1;
+        $faker = Faker::create();
+        for ($i=0; $i <= 150; $i++) {
+            DB::table('purchases')->insert([
+                'user_id' => $faker->numberBetween('1', '8')
+            ]);
+
+            $customer++;
+        }
     }
 }

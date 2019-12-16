@@ -1,5 +1,6 @@
 <?php
 
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
 class PrijsopgavesSeeder extends Seeder
@@ -11,15 +12,9 @@ class PrijsopgavesSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $faker = Faker::create();
         \App\prijsopgave::insert([
-           'customer_id' => 1,
-            'supply_id' => 1,
-            'supply_id1' => 1,
-            'supply_id2' => 1,
-            'count' => 1,
-            'count1' => 1,
-            'count2' => 1
+           'customer_id' => $faker->numberBetween('1', '8')
         ]);
     }
 }

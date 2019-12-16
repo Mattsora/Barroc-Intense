@@ -1,6 +1,7 @@
 <?php
 
 use App\Invoice;
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
 class InvoicesSeeder extends Seeder
@@ -12,9 +13,14 @@ class InvoicesSeeder extends Seeder
      */
     public function run()
     {
-        //
-        Invoice::insert([
-           'lease_id' => 1,
-        ]);
+        $lease_ID = 1;
+        $faker = Faker::create();
+        for ($i=0; $i <= 150; $i++) {
+            DB::table('invoices')->insert([
+                'lease_id' => $lease_ID
+            ]);
+            $lease_ID++;
+        }
+
     }
 }

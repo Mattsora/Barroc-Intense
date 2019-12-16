@@ -1,5 +1,6 @@
 <?php
 
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
 class MaintanceUsedSeeder extends Seeder
@@ -12,10 +13,17 @@ class MaintanceUsedSeeder extends Seeder
     public function run()
     {
         //
-        \App\maintanceUsed::insert([
-           'customer_id' => 1,
-            'suplly_id' => 1,
-             'date' => '2019-12-16'
-        ]);
+
+        $customer = 1;
+        $faker = Faker::create();
+        for ($i=0; $i <= 150; $i++) {
+            DB::table('maintanceused')->insert([
+                'customer_id' => $faker->numberBetween('1', '8'),
+                'suplly_id' => $faker->numberBetween('1', '150'),
+                'date' => '2019-12-16'
+            ]);
+
+            $customer++;
+        }
     }
 }

@@ -14,10 +14,11 @@ class ProductRollSeeder extends Seeder
     {
         //
         Product_roll::insert([
-           'roll' => 1
+            'roll' => 'out stock'
         ]);
         Product_roll::insert([
-            'roll' => 0
+            'roll' => 'in stock'
         ]);
+
     }
 }
