@@ -54,7 +54,9 @@ class errorController extends Controller
      */
     public function show($id)
     {
-        //
+        $error = error::where('id', $id)->get();
+        $users = User::all();
+        return view('errors/planner', ['error' => $error, 'users' => $users]);
     }
 
     /**
@@ -65,7 +67,8 @@ class errorController extends Controller
      */
     public function edit($id)
     {
-        //
+
+
     }
 
     /**
@@ -77,7 +80,12 @@ class errorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $error = error::findOrFail($id);
+        $error->update([
+            'planned' =>  $request->date,
+            'user_id' => $request->Dropdown1
+        ]);
+
     }
 
     /**

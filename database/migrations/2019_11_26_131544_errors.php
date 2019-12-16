@@ -17,6 +17,10 @@ class Errors extends Migration
             $table->bigIncrements('id');
             $table->text('errorMessage');
             $table->text('CompanyName');
+            $table->date('planned');
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
