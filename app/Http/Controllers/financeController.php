@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\lease_contract;
 use App\LeaseType;
 use Illuminate\Http\Request;
+use App\supplies;
 
 class financeController extends Controller
 {
@@ -28,8 +29,9 @@ class financeController extends Controller
     public function create()
     {
         //
+        $supplies = supplies::all();
         $types = LeaseType::all();
-        return view('finance/create', ['types'=>$types]);
+        return view('finance/create', ['types'=>$types, 'supplies'=>$supplies]);
 
     }
 
@@ -46,7 +48,8 @@ class financeController extends Controller
             'customer_id'          =>  $request->customer_id,
             'start_date'           =>  $request->start_date,
             'end_date'             =>  $request->end_date,
-            'lease_type'             =>  $request->lease_type
+            'lease_type'             =>  $request->lease_type,
+            'supply_id'               => $request->supply_id
         ]);
         return view('finance/index');
     }
@@ -106,9 +109,23 @@ class financeController extends Controller
         INNER JOIN lease_contracts
         ON lease_type.id = lease_contracts.lease_type
         WHERE lease_type.id = lease_contracts.lease_type');
+        $supplies = \DB::select('select supplies.id, supplies.name FROM supplies
+        INNER JOIN lease_contracts
+        ON supplies.id = lease_contracts.supply_id
+        ');
+        /*$supplies = \DB::select('select supplies.id, supplies.name FROM supplies
+        INNER JOIN lease_rules
+        ON supplies.id = lease_rules.supply_id
+        INNER JOIN leases
+        ON lease_rules.lease_id = leases.id
+        INNER JOIN lease_contracts
+        ON lease_contracts.lease_id = leases.id
+        INNER JOIN lease_type
+        ON lease_contracts.lease_type = lease_type.id
+        ');*/
         $contracts = lease_contract::all();
         return view('finance/contractoverview', ['contracts'=>$contracts,
             'users'=>$users,
-            'contracttypes'=>$contracttypes]);
+            'contracttypes'=>$contracttypes, 'supplies'=>$supplies]);
     }
 }

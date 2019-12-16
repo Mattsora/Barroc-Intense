@@ -121,3 +121,29 @@ html{
 .erroroverview h3 {
 
 }
+
+.orderproducts {
+    display:flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.orderproducts label{
+    margin: 5px;
+}
+
+.orderproducts select{
+    margin: 5px;
+}
+
+.smallp {
+    font-size: 20px;
+    text-align: center;
+    color:black;
+}
+
+.showprijsopgave{
+    display:flex;
+    flex-direction: row;
+    text-align: center;
+}

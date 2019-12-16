@@ -24,6 +24,14 @@
                     @endforeach
                 </select>
 
+                <label for="supplies_id">Welk product</label>
+                <select name="supply_id" id="supply_id">
+                    @foreach ($supplies as $supply)
+                        <option value="{{$supply->id}}">{{$supply->name}}</option>
+                    @endforeach
+                </select>
+
+
                 <input type="submit" value="Submit">
             </form>
         </div>

@@ -4,6 +4,11 @@
 @extends('layouts/mainlayout')
 @section('content')
     <div class="container">
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h3><a href="{{ route('finance.create') }}">Contract aanmaken?</a></h3>
+            </div>
+        </section>
         <div class="erroroverview">
             <div class="companynames">
                 <h3>Gebruiker</h3>
@@ -29,6 +34,14 @@
                     <p>{{$contracttype->name}}</p>
                 @endforeach
             </div>
+
+            <div class="errormessages">
+                <h3>Product</h3>
+                @foreach($supplies as $supply)
+            <p>{{$supply->name}}</p>
+                @endforeach
+            </div>
+
         </div>
     </div>
 @endsection

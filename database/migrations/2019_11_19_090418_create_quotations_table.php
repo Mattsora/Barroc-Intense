@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class LeaseContracts extends Migration
+class CreateQuotationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class LeaseContracts extends Migration
      */
     public function up()
     {
-        Schema::create('lease_contracts', function (Blueprint $table) {
+        Schema::create('quotations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->unsignedBigInteger('sales_id');
             $table->unsignedBigInteger('customer_id');
-            $table->unsignedBigInteger('lease_type');
-            $table->unsignedBigInteger('supply_id');
+            $table->text('content');
+            $table->timestamps();
+            $table->foreign('sales_id')->references('id')->on('users');
             $table->foreign('customer_id')->references('id')->on('users');
-            $table->foreign('lease_type')->references('id')->on('lease_type');
-            $table->foreign('supply_id')->references('id')->on('supplies');
         });
     }
 
@@ -33,6 +31,6 @@ class LeaseContracts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lease_contracts');
+        Schema::dropIfExists('quotations');
     }
 }
