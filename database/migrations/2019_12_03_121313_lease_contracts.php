@@ -15,8 +15,7 @@ class LeaseContracts extends Migration
     {
         Schema::create('lease_contracts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->timestamps();
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('lease_type');
             $table->unsignedBigInteger('supply_id');

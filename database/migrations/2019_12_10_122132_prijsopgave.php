@@ -16,8 +16,7 @@ class Prijsopgave extends Migration
         //
         Schema::create('prijsopgaves', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->timestamps();
             $table->unsignedBigInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('users');
 

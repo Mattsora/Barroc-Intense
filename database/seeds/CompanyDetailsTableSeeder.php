@@ -15,8 +15,10 @@ class CompanyDetailsTableSeeder extends Seeder
         //
         Bkrcheckmdl::insert([
            'user_id' => 1,
-            'created at' => '16-12-2019',
-            'updated at' => '16-12-2019'
+            'companyname' => 'Project Group 8',
+            'email' => 'pg8@admin.nl',
+            'telefoon' => 0666666666,
+            'healthcheck' => 1
         ]);
     }
 }
