@@ -14,7 +14,7 @@ use App\Bkrcheckmdl;
 
 
 
-
+Route::resource('bkrcheck', 'BkrController');
 Route::resource('maintanceUsed', 'maintanceUsedController');
 
 
