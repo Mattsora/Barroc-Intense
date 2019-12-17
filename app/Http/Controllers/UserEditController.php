@@ -11,6 +11,7 @@ use App\LeaseType;
 use App\lease_rules;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use function PHPSTORM_META\type;
 
 

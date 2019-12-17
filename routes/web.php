@@ -38,15 +38,9 @@ Route::get('login', function () {
 
 Route::resource('bkrcheck', 'BkrController@index');
 
-Route::group(['middleware' => 'role:3'], function(){
-    Route::resource('finance', 'financeController');
-});
 
-Route::group(['middleware' => 'role:2'], function(){
-    Route::resource('sales', 'SalesController');
-});
-
-
+Route::resource('finance', 'financeController');
+Route::resource('sales', 'SalesController');
 Route::resource('notes', 'NotesController');
 Route::resource('quotations', 'quotationsController');
 Route::resource('purchase', 'purchaseController');
