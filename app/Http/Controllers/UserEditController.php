@@ -11,7 +11,7 @@ use App\LeaseType;
 use App\lease_rules;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use function PHPSTORM_META\type;
 
 
 class UserEditController extends Controller
@@ -32,6 +32,7 @@ class UserEditController extends Controller
         $supplyName = supplies::where('id', $supplyID[0]->supply_id)->get();
         $leaseTest = $lease[0]->lease_type_id;
         $Type = LeaseType::where('id', $leaseTest)->get();
+
 
         $purchaseID = purchase::where('user_id', $id)->get();
         $PurchaseName = purchase_rules::where('purchase_id', $purchaseID[0]->id)->get();

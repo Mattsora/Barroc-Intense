@@ -16,7 +16,7 @@ class PurchaseRulesSeeder extends Seeder
         $lease_id = 1;
         $supply_id = 1;
         $faker = Faker::create();
-        for ($i=0; $i <= 150; $i++) {
+        for ($i=0; $i <= 1500; $i++) {
             DB::table('purchase_rules')->insert([
                 'purchase_id' => $faker->numberBetween('1', '150'),
                 'supply_id' => $faker->numberBetween('1', '150')
