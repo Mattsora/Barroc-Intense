@@ -17,7 +17,8 @@ class InvoicesSeeder extends Seeder
         $faker = Faker::create();
         for ($i=0; $i <= 150; $i++) {
             DB::table('invoices')->insert([
-                'lease_id' => $lease_ID
+                'lease_id' => $lease_ID,
+                'payed' => $faker->numberBetween('0', '1')
             ]);
             $lease_ID++;
         }
