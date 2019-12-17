@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class SalesController extends Controller
 {
-  
+
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +46,7 @@ class SalesController extends Controller
 
             'name'      => $request->name,
             'email'     => $request->email,
-            'role_id'   => $request->role_id,
+            'role_id'   => 7,
             'password'  => $request->password
         ]);
     }
