@@ -12,13 +12,6 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/bkrcheck', function () {
-    return view('bkrcheck');
-});
 
 Route::resource('bkrcheck', 'BkrController');
 Route::resource('maintanceUsed', 'maintanceUsedController');
@@ -42,21 +35,31 @@ Route::get('login', function () {
     return view('auth/login');
 });
 
+Route::get('/bkrcheck', function () {
+    return view('bkrcheck');
+});
+
+Route::group(['middleware' => 'role:3'], function(){
+    Route::resource('finance', 'financeController');
+});
+
+Route::group(['middleware' => 'role:2'], function(){
+    Route::resource('sales', 'SalesController');
+});
 
 
-Route::resource('sales', 'SalesController');
 Route::resource('notes', 'NotesController');
 Route::resource('quotations', 'quotationsController');
 Route::resource('purchase', 'purchaseController');
 Route::resource('purchaseBuy', 'purchaseBuyController');
-Route::resource('finance', 'financeController');
+//Route::resource('finance', 'financeController');
 Route::resource('prijsopgave', 'prijsopgaveController');
 Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroroverview');
 Route::get('financecontractoverview', 'financeController@financecontractoverview')->name('finance.finance   contractoverview');
 Route::resource('error', 'errorController');
 Route::resource('UserEdit', 'UserEditController');
 Route::get('erroroverview', 'errorController@erroroverview')->name('error.erroroverview');
-Route::resource('finance', 'financeController');
+//Route::resource('finance', 'financeController');
 Auth::routes();
 
 

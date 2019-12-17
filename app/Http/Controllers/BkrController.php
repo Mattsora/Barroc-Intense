@@ -14,7 +14,6 @@ class BkrController extends Controller
      */
     public function index()
     {
-
         $bkr = Bkrcheckmdl::all();
         return view('bkrcheck', ['bkr' => $bkr]);
 

@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 
 class SalesController extends Controller
 {
+    public function __construct() {
+        $this->middleware('role:2');
+    }
     /**
      * Display a listing of the resource.
      *
