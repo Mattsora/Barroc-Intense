@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class LeaseContracts extends Migration
+class PrijsopgavenRules extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class LeaseContracts extends Migration
      */
     public function up()
     {
-        Schema::create('lease_contracts', function (Blueprint $table) {
+        Schema::create('prijsopgaves_rules', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
-            $table->unsignedBigInteger('customer_id');
-            $table->unsignedBigInteger('lease_type');
             $table->unsignedBigInteger('supply_id');
-            $table->foreign('customer_id')->references('id')->on('users');
-            $table->foreign('lease_type')->references('id')->on('lease_type');
+            $table->unsignedBigInteger('prijsopgaven_id');
+            $table->unsignedBigInteger('amount');
             $table->foreign('supply_id')->references('id')->on('supplies');
+            $table->foreign('prijsopgaven_id')->references('id')->on('prijsopgaves');
+
         });
     }
 
@@ -32,6 +31,6 @@ class LeaseContracts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lease_contracts');
+        Schema::dropIfExists('prijsopgaves_rules');
     }
 }

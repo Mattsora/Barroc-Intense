@@ -18,7 +18,7 @@ class CreateCompanydetailsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->text('companyname');
             $table->text('email');
-            $table->integer('telefoon');
+            $table->string('telefoon');
             $table->tinyInteger('healthcheck');
             $table->timestamps();
             

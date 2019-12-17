@@ -14,7 +14,7 @@ class error extends Model
 
     protected $table = 'errors';
 
-    public function  user(){
+    public function customer() {
         return $this->belongsTo('\App\User', 'user_id');
     }
 }
