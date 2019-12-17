@@ -35,10 +35,6 @@ Route::get('privacy', function () {
 Route::get('login', function () {
     return view('auth/login');
 });
-
-Route::resource('bkrcheck', 'BkrController@index');
-
-
 Route::resource('finance', 'financeController');
 Route::resource('sales', 'SalesController');
 Route::resource('notes', 'NotesController');
