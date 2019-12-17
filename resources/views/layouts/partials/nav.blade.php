@@ -57,16 +57,22 @@ $user = auth()->user();
             @else
                 <nav>
                     <p>Klant Portaals</p>
-                    <a href="notes">Offertes Kijken</a>
-                   
+
+                    <a href="financecontractoverview">Contracts</a>
+                    <a href="purchase">Producten</a>
+                    <a href="error">Storing melden</a>
+                    <a href="UserEdit">Wijzig gegevens</a>
+                    <a href="prijsopgave">Prijsopgave</a>
+
+
                 </nav>
             @endif
             <a href="/logout">Uitloggen</a>
         @else
             <nav>
-               <a href="privacy">Privacyverklaaring</a> 
+               <a href="privacy">Privacyverklaaring</a>
              </nav>
         @endif
-    
+
         </div>
     </div>
