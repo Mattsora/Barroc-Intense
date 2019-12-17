@@ -18,6 +18,7 @@ class CreateInvoicesTable extends Migration
             $table->unsignedBigInteger('lease_id');
             $table->timestamps();
             $table->foreign('lease_id')->references('id')->on('leases');
+            $table->boolean('payed');
         });
     }
 
