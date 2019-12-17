@@ -14,7 +14,7 @@ use App\Bkrcheckmdl;
 
 
 
-
+Route::resource('bkrcheck', 'BkrController');
 Route::resource('maintanceUsed', 'maintanceUsedController');
 
 
@@ -35,8 +35,6 @@ Route::get('privacy', function () {
 Route::get('login', function () {
     return view('auth/login');
 });
-
-Route::resource('bkrcheck', 'BkrController@index');
 
 Route::group(['middleware' => 'role:3'], function(){
     Route::resource('finance', 'financeController');
