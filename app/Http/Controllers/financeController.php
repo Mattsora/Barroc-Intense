@@ -46,8 +46,8 @@ class financeController extends Controller
         //
         lease_contract::insert([
             'customer_id'          =>  $request->customer_id,
-            'start_date'           =>  $request->start_date,
-            'end_date'             =>  $request->end_date,
+            'created_at'           =>  $request->start_date,
+            'updated_at'             =>  $request->end_date,
             'lease_type'             =>  $request->lease_type,
             'supply_id'               => $request->supply_id
         ]);

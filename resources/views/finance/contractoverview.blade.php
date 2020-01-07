@@ -19,13 +19,13 @@
             <div class="errormessages">
                 <h3>Start datum</h3>
                 @foreach($contracts as $contract)
-                    <p>{{$contract->start_date}}</p>
+                    <p>{{$contract->created_at}}</p>
                 @endforeach
             </div>
             <div class="errormessages">
                 <h3>Eind datum</h3>
                 @foreach($contracts as $contract)
-                    <p>{{$contract->end_date}}</p>
+                    <p>{{$contract->updated_at}}</p>
                 @endforeach
             </div>
             <div class="errormessages">
