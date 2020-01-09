@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Bkrcheckmdl;
+use App\Http\Middleware\RoleCheck;
 use Illuminate\Http\Request;
+/*use Illuminate\Support\Facades\Auth;*/
 
 class BkrController extends Controller
 {
@@ -14,9 +16,21 @@ class BkrController extends Controller
      */
     public function index()
     {
-        $bkr = Bkrcheckmdl::all();
-        return view('bkrcheck', ['bkr' => $bkr]);
 
+        if ( auth()->user()!==null && auth()->user()->role_id == 2 ){
+            $bkr = Bkrcheckmdl::all();
+            return view('bkrcheck', ['bkr' => $bkr]);
+
+
+        }
+        else {
+            ?>
+                <script type="text/javascript">
+                    alert("Access Denied.");
+                    window.location = "/login";
+                </script>
+            <?php
+        }
 
     }
 

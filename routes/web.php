@@ -11,10 +11,18 @@ use App\Bkrcheckmdl;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
+Auth::routes();
 
 Route::resource('bkrcheck', 'BkrController');
+
+
+/*Route::group(['middleware' => 'role:2'], function(){
+    Route::resource('bkrcheck', 'BkrController');
+});*/
+Route::resource('finance', 'financeController');
+
+Route::resource('sales', 'SalesController');
+
 Route::resource('maintanceUsed', 'maintanceUsedController');
 
 
@@ -35,8 +43,6 @@ Route::get('privacy', function () {
 Route::get('login', function () {
     return view('auth/login');
 });
-Route::resource('finance', 'financeController');
-Route::resource('sales', 'SalesController');
 Route::resource('notes', 'NotesController');
 Route::resource('quotations', 'quotationsController');
 Route::resource('purchase', 'purchaseController');

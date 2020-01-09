@@ -18,9 +18,19 @@ class SalesController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-    $quotations = quotations::all();
-    return view('sales/index' , ['users' => $users],['quotations' => $quotations] );
+        if ( auth()->user()!==null && auth()->user()->role_id == 2 ) {
+            $users = User::all();
+            $quotations = quotations::all();
+            return view('sales/index', ['users' => $users], ['quotations' => $quotations]);
+        }
+        else{
+            ?>
+            <script type="text/javascript">
+                alert("Access Denied.");
+                window.location = "/login";
+            </script>
+            <?php
+        }
     }
 
     /**
