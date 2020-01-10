@@ -1,5 +1,7 @@
 <?php
 use App\Bkrcheckmdl;
+use App\Lease;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,7 @@ Route::get('/offerte', function () {
 });
 
 Route::resource('offerte', 'offerteController');
+Route::resource('cookies', 'cookiesController');
 
 Route::get('erroroverview', function () {
     return view('erroroverview');
@@ -34,7 +37,7 @@ Route::get('privacy', function () {
 
 Route::get('login', function () {
     return view('auth/login');
-});
+}); 
 Route::resource('finance', 'financeController');
 Route::resource('sales', 'SalesController');
 Route::resource('notes', 'NotesController');
@@ -69,7 +72,19 @@ Route::get('logout', function (){
 
 
 Route::get('/', function (){
-    return view('welcome');
+    $check = Auth::check();
+
+
+    if ($check == false) {
+        return redirect()->route('home');
+
+    }
+    else{
+        $id = Auth::user()->id;
+        $user = \App\User::where('id', $id)->first();
+        return view('welcome' , ['user' => $user]);
+    }
+
 });
 
 Route::get('/sendemail', 'SendEmailController@index');
@@ -79,6 +94,7 @@ Route::get('/SendEmailSales', 'SendEmailSalesController@index');
 Route::post('/SendEmailSales/send', 'SendEmailSalesController@send');
 
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 

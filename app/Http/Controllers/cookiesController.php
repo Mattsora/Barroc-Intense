@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
 use App\User;
-use App\quotations;
-use App;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
-class SalesController extends Controller
+class cookiesController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +16,7 @@ class SalesController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-    $quotations = quotations::all();
-    return view('sales/index' , ['users' => $users],['quotations' => $quotations] );
+
     }
 
     /**
@@ -30,8 +26,7 @@ class SalesController extends Controller
      */
     public function create()
     {
-        $roles = \App\Roles::all();
-        return view('auth/register', ['roles'=>$roles]);
+
     }
 
     /**
@@ -42,14 +37,7 @@ class SalesController extends Controller
      */
     public function store(Request $request)
     {
-        User::insert([
-
-            'name'      => $request->name,
-            'email'     => $request->email,
-            'role_id'   => 7,
-            'password'  => $request->password,
-            'cookies' => 0
-        ]);
+        //
     }
 
     /**
@@ -60,7 +48,7 @@ class SalesController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -71,7 +59,7 @@ class SalesController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -83,7 +71,19 @@ class SalesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ( ! $request->has('cookies')) {
+            return 'checkbox moet wel geselecteerd zijn';
+        }
+        else {
+            $user = User::find($id);
+
+/*            $user->update(['cookies' => '1']);*/
+
+            DB::update('update users set cookies = 1 where id = ?', [$user->id]);
+
+            return User::find($id);
+
+        }
     }
 
     /**
