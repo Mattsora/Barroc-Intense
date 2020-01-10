@@ -20,7 +20,10 @@ class LeaseContractsSeeder extends Seeder
             DB::table('lease_contracts')->insert([
                 'customer_id' => $faker->numberBetween('1', '8'),
                 'lease_type' => $faker->numberBetween('1','2'),
-                'supply_id' => $supply_id
+                'supply_id' => $supply_id,
+                'created_at' => $faker->dateTimeBetween('-20 years', '-19 years' ),
+                'updated_at' => $faker->dateTimeBetween('-19 years', '-18 years')
+
             ]);
             $customer_id++;
             $supply_id++;

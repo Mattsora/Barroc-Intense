@@ -13,10 +13,18 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
+Auth::routes();
 
 Route::resource('bkrcheck', 'BkrController');
+
+
+/*Route::group(['middleware' => 'role:2'], function(){
+    Route::resource('bkrcheck', 'BkrController');
+});*/
+Route::resource('finance', 'financeController');
+
+Route::resource('sales', 'SalesController');
+
 Route::resource('maintanceUsed', 'maintanceUsedController');
 
 

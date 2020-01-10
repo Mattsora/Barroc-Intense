@@ -1,6 +1,9 @@
+<?php
 
+?>
 @extends('layouts/mainlayout')
 @section('content')
+
     <section class="jumbotron text-center">
         <div class="container">
             <form action="{{ route('UserEdit.update', $userID->id)}}" method="POST">

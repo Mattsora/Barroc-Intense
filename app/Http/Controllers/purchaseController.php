@@ -17,8 +17,18 @@ class purchaseController extends Controller
     public function index()
     {
 
-        $supplies = App\supplies::all();
-        return view('Products/index' , ['supplies' => $supplies]);
+        if ( auth()->user()!==null && auth()->user()->role_id == 3 ) {
+            $supplies = App\supplies::all();
+            return view('Products/index', ['supplies' => $supplies]);
+        }
+        else{
+            ?>
+            <script type="text/javascript">
+                alert("Access Denied.");
+                window.location = "/login";
+            </script>
+            <?php
+        }
     }
 
     /**

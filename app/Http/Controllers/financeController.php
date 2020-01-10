@@ -9,6 +9,7 @@ use App\supplies;
 
 class financeController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +19,17 @@ class financeController extends Controller
     {
         //
 
-        return view('finance/index');
+        if ( auth()->user()!==null && auth()->user()->role_id == 3 ) {
+            return view('finance/index');
+        }
+        else{
+                ?>
+                <script type="text/javascript">
+                    alert("Access Denied.");
+                    window.location = "/login";
+                </script>
+                <?php
+        }
     }
 
     /**
@@ -46,8 +57,8 @@ class financeController extends Controller
         //
         lease_contract::insert([
             'customer_id'          =>  $request->customer_id,
-            'start_date'           =>  $request->start_date,
-            'end_date'             =>  $request->end_date,
+            'created_at'           =>  $request->start_date,
+            'updated_at'             =>  $request->end_date,
             'lease_type'             =>  $request->lease_type,
             'supply_id'               => $request->supply_id
         ]);
@@ -101,31 +112,37 @@ class financeController extends Controller
 
     public function financecontractoverview()
     {
-        $users = \DB::select('select users.id, users.role_id, users.name FROM users
+        //kijkt eerst of user bestaat en of user Role '3' heeft.
+        if ( auth()->user()!==null && auth()->user()->role_id == 3 ){
+            $users = \DB::select('select users.id, users.role_id, users.name FROM users
         INNER JOIN lease_contracts
         ON users.id = lease_contracts.customer_id
         WHERE users.id = lease_contracts.customer_id');
-        $contracttypes = \DB::select('select lease_type.id, lease_type.name FROM lease_type
+            $contracttypes = \DB::select('select lease_type.id, lease_type.name FROM lease_type
         INNER JOIN lease_contracts
         ON lease_type.id = lease_contracts.lease_type
         WHERE lease_type.id = lease_contracts.lease_type');
-        $supplies = \DB::select('select supplies.id, supplies.name FROM supplies
+            $supplies = \DB::select('select supplies.id, supplies.name FROM supplies
         INNER JOIN lease_contracts
         ON supplies.id = lease_contracts.supply_id
         ');
-        /*$supplies = \DB::select('select supplies.id, supplies.name FROM supplies
-        INNER JOIN lease_rules
-        ON supplies.id = lease_rules.supply_id
-        INNER JOIN leases
-        ON lease_rules.lease_id = leases.id
-        INNER JOIN lease_contracts
-        ON lease_contracts.lease_id = leases.id
-        INNER JOIN lease_type
-        ON lease_contracts.lease_type = lease_type.id
-        ');*/
-        $contracts = lease_contract::all();
-        return view('finance/contractoverview', ['contracts'=>$contracts,
-            'users'=>$users,
-            'contracttypes'=>$contracttypes, 'supplies'=>$supplies]);
+            /*$supplies = \DB::select('select supplies.id, supplies.name FROM supplies
+            INNER JOIN lease_rules
+            ON supplies.id = lease_rules.supply_id
+            INNER JOIN leases
+            ON lease_rules.lease_id = leases.id
+            INNER JOIN lease_contracts
+            ON lease_contracts.lease_id = leases.id
+            INNER JOIN lease_type
+            ON lease_contracts.lease_type = lease_type.id
+            ');*/
+            $contracts = lease_contract::all();
+            return view('finance/contractoverview', ['contracts'=>$contracts,
+                'users'=>$users,
+                'contracttypes'=>$contracttypes, 'supplies'=>$supplies]);
+        }
+        else {
+            return redirect('login') && 'Access Denied' ;
+        }
     }
 }
